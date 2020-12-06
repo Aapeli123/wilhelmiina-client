@@ -1,13 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Login from './Login';
 import reportWebVitals from './reportWebVitals';
-
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import NavBar from './NavBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './Home';
+import Schedule from './Schedule';
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <BrowserRouter>
+      <NavBar />
+      <Switch>
+        <Route path="/home">
+          <Home />
+        </Route>
+        <Route path="/schedule">
+          <Schedule />
+        </Route>
+        <Route path="/">
+          <Login />
+        </Route>
+      </Switch>
+    </BrowserRouter>  </React.StrictMode>,
   document.getElementById('root')
 );
 
