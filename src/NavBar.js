@@ -8,7 +8,7 @@ export default () => (
         <Nav className="mr-auto"> 
             <Nav.Item><Link to="/home">Home</Link></Nav.Item>
             <Nav.Item><Link to="/schedule">Schedule</Link></Nav.Item>
-            <Nav.Item><Link to="/">Logout</Link></Nav.Item>
+            <Nav.Item><Link to="/logout">Logout</Link></Nav.Item>
         </Nav>
     </Navbar>
 )

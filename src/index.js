@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Login from './Login';
+import Logout from './Logout'
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import NavBar from './NavBar';
@@ -11,13 +12,15 @@ import Schedule from './Schedule';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <NavBar />
       <Switch>
         <Route path="/home">
           <Home />
         </Route>
         <Route path="/schedule">
           <Schedule />
+        </Route>
+        <Route path="/logout">
+          <Logout />
         </Route>
         <Route path="/">
           <Login />

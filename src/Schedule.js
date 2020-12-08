@@ -3,7 +3,7 @@ import React from 'react';
 export default () => {
     return (
         <h1>
-            Wilhelmiina - Schedule
+            Schedule
         </h1>
     )
 };
