@@ -9,6 +9,34 @@ import NavBar from './NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './Home';
 import Schedule from './Schedule';
+import axios from 'axios';
+
+
+const BackUrl = `localhost:4000`
+const httpProtocol = `http://`;
+const wsProtocol = `ws://`;
+
+
+const api = axios.create({
+
+  withCredentials: true,
+  baseURL: httpProtocol+BackUrl
+})
+
+
+const request = async (path, method, body) => {
+
+  let options = {
+    credentials: 'include',
+    method: method,
+    body: JSON.stringify(body)
+  }
+  let res = await fetch(`${httpProtocol}${BackUrl}${path}`, options)
+  return res
+}
+
+export {api, wsProtocol};
+console.log(request("/cookies", "GET"))
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
