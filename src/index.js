@@ -36,7 +36,6 @@ const request = async (path, method, body) => {
 }
 
 export {api, wsProtocol};
-console.log(request("/cookies", "GET"))
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

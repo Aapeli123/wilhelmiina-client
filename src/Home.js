@@ -5,16 +5,23 @@ import { ToastContainer, toast } from "react-toastify";
 
 export default () => {
     const [user, setUser] = useState({});
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
     const getUser = async () => {
-        let res = await api.get("user")
-        if (!res.data.Success) {
-            toast.error(res.data.Message);
-            return
+        try {
+            let res = await api.get("user")    
+            let user = res.data.Data;
+            if (!res.data.Success) {
+                toast.error(res.data.Message);
+                window.location.replace("/login")
+                return
+            }
+            setUser(user)
+            setLoading(false)
+        } catch (err) {
+            window.location.replace("/login")
+
         }
-        let user = res.data.Data;
-        setUser(user)
-        setLoading(false)
+        
 
     }
 
