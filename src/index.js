@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './Home';
 import Schedule from './Schedule';
 import axios from 'axios';
+import Admin from './Admin/admin';
 
 
 const BackUrl = `localhost:4000`
@@ -49,7 +50,10 @@ ReactDOM.render(
         <Route path="/logout">
           <Logout />
         </Route>
-        <Route path="/">
+        <Route path="/admin">
+          <Admin />
+        </Route>
+        <Route path="/login">
           <Login />
         </Route>
       </Switch>

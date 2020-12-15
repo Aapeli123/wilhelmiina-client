@@ -1,5 +1,4 @@
-import React, {useRef, useState} from 'react'
-import axios from 'axios'
+import React, {useRef, useState, useEffect} from 'react'
 import { api } from '.';
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -27,6 +26,19 @@ const LoginPage = () => {
       }
     });
   }
+
+  useEffect(() => {
+    let mounted = true;
+    api.get("validateSession").then(res => {
+      if(!res.data.Success) {
+        return
+      }
+      if(mounted) {
+        setLoggedIn(res.data.Data)
+      }
+    }).catch(err => console.log)
+    return () => mounted = false;
+  }, [loggedIn])
 
 
   return loggedIn? (

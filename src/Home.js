@@ -24,7 +24,7 @@ export default () => {
         
 
     }
-
+    let data = "<script> alert(0) </script>"
     useEffect(async () => {
         await getUser()
     }, [loading])
@@ -39,6 +39,9 @@ export default () => {
         <h1>
             Hello, {user.Fullname}
         </h1>
+        <div>
+            {data}
+        </div>
         <ToastContainer
             position="top-center"
             autoClose={5000}
