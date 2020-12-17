@@ -2,13 +2,13 @@ import React, {useState, useEffect} from 'react';
 import { api } from '.';
 import NavBar from './NavBar';
 import { ToastContainer, toast } from "react-toastify";
-
+import Spinner from './Spinner';
 export default () => {
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true);
     const getUser = async () => {
         try {
-            let res = await api.get("user")    
+            let res = await api.get("user");  
             let user = res.data.Data;
             if (!res.data.Success) {
                 toast.error(res.data.Message);
@@ -19,7 +19,6 @@ export default () => {
             setLoading(false)
         } catch (err) {
             window.location.replace("/login")
-
         }
         
 
@@ -31,7 +30,9 @@ export default () => {
 
     return loading? (
         <>
-        <h1>Loading..</h1>
+        <NavBar /> 
+        <h1>Loading...</h1>
+        <Spinner />
         </>
     ) : (
         <>
@@ -50,6 +51,8 @@ export default () => {
             closeOnClick
             rtl={false}
             draggable
+            pauseOnHover={false}
+            pauseOnFocusLoss={false}
         />
         </>
     )

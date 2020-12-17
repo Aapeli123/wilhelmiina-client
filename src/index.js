@@ -41,6 +41,9 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Switch>
+        <Route path="/index">
+          <Home />
+        </Route>
         <Route path="/home">
           <Home />
         </Route>
@@ -56,7 +59,11 @@ ReactDOM.render(
         <Route path="/login">
           <Login />
         </Route>
+        <Route path="/">
+          <Home />
+        </Route>
       </Switch>
+
     </BrowserRouter>  </React.StrictMode>,
   document.getElementById('root')
 );
